@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Header from "@/components/share/header";
+import Header from "@/components/share/header/header";
 import Footer from "@/components/share/footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,8 +18,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="">
-            <body className={inter.className}>
+        <html lang="en" className="h-full">
+            <body className={`${inter.className} h-full min-h-full`}>
                 <Providers>
                     <Header />
                     {children}
