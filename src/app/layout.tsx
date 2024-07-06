@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Header from "@/components/share/header/header";
 import Footer from "@/components/share/footer";
+import { AppWrapper } from "@/context"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +21,13 @@ export default function RootLayout({
     return (
         <html lang="en" className="h-full">
             <body className={`${inter.className} h-full min-h-full`}>
+            <AppWrapper>
                 <Providers>
                     <Header />
                     {children}
                     <Footer />
                 </Providers>
+            </AppWrapper>
             </body>
         </html>
     );

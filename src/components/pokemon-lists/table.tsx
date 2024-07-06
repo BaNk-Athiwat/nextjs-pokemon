@@ -7,6 +7,7 @@ import {
     CardBody,
     CardFooter,
     Image,
+    Link,
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
@@ -219,7 +220,12 @@ export default function Table({
                                         </CardBody>
                                         <CardFooter className="px-[10px] pt-4 pb-[14px]">
                                             <Button className="w-full bg-[#373737] hover:bg-[#FFCB05] text-white hover:text-[#373737] font-bold hover:outline-4 hover:outline-[#F8F1D8] hover:outline-offset-0">
-                                                Detail
+                                                <Link
+                                                    href={`/pokemon-detail/${pokemon.name}`}
+                                                    className="flex justify-center text-inherit w-full h-full"
+                                                >
+                                                    Detail
+                                                </Link>
                                             </Button>
                                         </CardFooter>
                                     </Card>
@@ -269,7 +275,12 @@ export default function Table({
                                         </CardBody>
                                         <CardFooter className="justify-end ml-auto w-fit">
                                             <Button className="w-[230px] bg-[#373737] hover:bg-[#FFCB05] text-white hover:text-[#373737] font-bold hover:outline-4 hover:outline-[#F8F1D8] hover:outline-offset-0">
-                                                Detail
+                                                <Link
+                                                    href={`/pokemon-detail/${pokemon.name}`}
+                                                    className="flex justify-center text-inherit w-full h-full"
+                                                >
+                                                    Detail
+                                                </Link>
                                             </Button>
                                         </CardFooter>
                                     </Card>

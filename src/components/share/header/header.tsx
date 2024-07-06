@@ -3,8 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import Search from "./search";
+import { useAppContext } from "@/context";
 
 export default function Header() {
+
+    const { pocketList } = useAppContext();
+
     return (
         <header>
             <div className="flex justify-between items-center bg-[#FFCB05] h-[42px] text-sm px-14">
@@ -30,12 +34,15 @@ export default function Header() {
                 </ul>
             </div>
             <div className="relative flex justify-between items-center h-20 text-xs bg-[#FFFFFF] shadow-md px-14">
-                <Image
-                    src="https://via.placeholder.com/156x57"
-                    alt="Picture for login page"
-                    width={156}
-                    height={57}
-                />
+                <Link href={`/pokemon-lists`} className="z-10">
+                    <Image
+                        src="/pokemon-logo.png"
+                        alt="Picture for login page"
+                        width={156}
+                        height={57}
+                        priority
+                    />
+                </Link>
                 <div className="flex justify-center items-center absolute left-0 w-full text-base">
                     <Search placeholder={"Search name Pokémon ..."} />
                 </div>
@@ -74,7 +81,7 @@ export default function Header() {
                         </li>
                         <li className="flex items-center">
                             <Link
-                                href={""}
+                                href={`/pocket`}
                                 className="flex items-center text-[#666666] pl-3"
                             >
                                 <div className="relative">
@@ -117,7 +124,7 @@ export default function Header() {
                                         />
                                     </svg>
                                     <span className="flex justify-center items-center absolute top-0 right-0 w-[15px] h-[15px] bg-[#373737] rounded-full text-[10px] text-[#F9F9F9] translate-x-1.5 -translate-y-0.5">
-                                        {0}
+                                        {pocketList?.length || 0}
                                     </span>
                                 </div>
                                 <span className="pl-2">Pocket</span>
